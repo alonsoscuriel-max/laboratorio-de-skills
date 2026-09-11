@@ -196,6 +196,24 @@ def archivos(raiz: Path):
         yield p
 
 
+# Un comentario que HABLA de algo peligroso no HACE nada peligroso. Sin esto,
+# cualquier auditor, linter o documentacion que mencione estos patrones se marca
+# a si mismo — y nosotros fuimos el primer caso.
+RE_COMENTARIO = re.compile(r"""^\s*(#|//|/\*|\*|<!--|--|;|r?["']\s*[|(])""")
+RE_ENTRECOMILLADO = re.compile(r"""["'][^"']{1,60}["']""")
+
+
+def es_mencion(linea: str) -> bool:
+    """Comentario, o un patron escrito como texto (una regla, no una accion)."""
+    return bool(RE_COMENTARIO.match(linea))
+
+
+def es_lista(linea: str) -> bool:
+    """Una linea con varios textos entrecomillados separados por comas es una
+    lista o una lista blanca, no una direccion donde se pone a escuchar."""
+    return len(RE_ENTRECOMILLADO.findall(linea)) >= 3
+
+
 def es_de_prueba(rel_partes: tuple[str, ...], nombre: str) -> bool:
     if any(parte.lower() in DIR_PRUEBAS for parte in rel_partes):
         return True
@@ -239,9 +257,13 @@ def revisar(raiz: Path) -> tuple[list[Senal], dict[str, int], int, int]:
                         break
                     if len(linea) > 600:
                         linea = linea[:600]
+                    if es_mencion(linea):
+                        continue
                     if not patron.search(linea):
                         continue
                     if clave == "llave_pegada" and FALSAS.search(linea):
+                        continue
+                    if clave == "red_abierta" and es_lista(linea):
                         continue
                     s.hallazgos.append((rel, n, linea.strip()[:150]))
 
