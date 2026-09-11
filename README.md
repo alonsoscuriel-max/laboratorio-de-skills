@@ -1,4 +1,4 @@
-# 🔬 Laboratorio
+# 🔬 Laboratorio de skills
 
 **Revisa lo que vas a instalar, antes de instalarlo.**
 
@@ -58,8 +58,8 @@ dirección de GitHub.)*
 
 ```bash
 # baja el auditor
-git clone https://github.com/TU-USUARIO/laboratorio
-cd laboratorio
+git clone https://github.com/alonsoscuriel-max/laboratorio-de-skills
+cd laboratorio-de-skills
 
 # revisa cualquier repositorio
 python auditor.py https://github.com/usuario/proyecto
@@ -111,27 +111,23 @@ El auditor es **el paso 2**. Así revisamos nosotros:
 
 ---
 
-## Casos revisados
+## Un ejemplo de cómo leerlo
 
-| Proyecto | El auditor | Después de leerlo completo | |
-|---|---|---|---|
-| [free-claude-code](casos/free-claude-code.md) | 🔴 | 🟡 **Amarillo** | *«Usa Claude gratis para siempre»* — no es un fraude, pero **no es Claude** |
+**El primer proyecto que revisamos con esto salió 🔴 rojo.** Escuchaba en toda la
+red **y** venía sin contraseña de fábrica.
 
-### 🔑 Y fíjate en esas dos columnas, porque ahí está todo
+**Al leer el código completo, bajó a 🟡 amarillo** — por dos cosas que una máquina
+no podía saber: el panel donde vivían las llaves **sí** estaba protegido *(solo
+aceptaba conexiones de la propia máquina, y bien hecho)*, y lo demás **se
+arreglaba con una línea**.
 
-**El auditor lo marca 🔴** por una combinación real: escucha en toda la red **y**
-viene sin contraseña.
+> 🔑 **Ese salto de 🔴 a 🟡, con razones, es el punto entero.**
+> **El auditor te dice dónde mirar. No te dice el veredicto.**
 
-**Al leer el código completo baja a 🟡**, por dos razones que una máquina no podía
-saber: **el panel donde viven las llaves sí está protegido** *(solo acepta
-conexiones de tu propia máquina, y está bien hecho)*, y **lo demás se arregla con
-una línea** *(`HOST=127.0.0.1`)*.
-
-> **Ese salto de 🔴 a 🟡, con razones, es exactamente para lo que existen los
-> pasos 3 y 4.** El auditor te dice dónde mirar. **No te dice el veredicto.**
-
-**Cada caso trae lo que encontramos, cómo lo comprobamos, y también lo que
-resultó ser falso de nuestras propias sospechas.**
+**Nuestros resultados los publicamos aparte**, en
+[@laboratoriodigital](https://instagram.com/laboratoriodigital). Aquí va la
+herramienta, **para que cada quien corra su propia prueba** — que al final es de
+lo que se trata.
 
 ---
 
