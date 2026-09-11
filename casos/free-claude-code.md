@@ -1,9 +1,19 @@
 # Caso · free-claude-code
 
-## 🟡 Amarillo — no es un fraude, pero no es lo que te dijeron
+## El auditor dijo 🔴. Leerlo completo lo bajó a 🟡.
 
 **Revisado el 11 de septiembre de 2026.**
 `github.com/Alishahryar1/free-claude-code` · MIT · 54,500 estrellas · 8,700 forks
+
+| | |
+|---|---|
+| **`auditor.py`** | 🔴 **ROJO** — escucha en toda la red **y** sin contraseña de fábrica |
+| **Después de leer el código** | 🟡 **AMARILLO** — el panel de las llaves **sí** está protegido, y lo demás se arregla con una línea |
+
+> **No es un fraude. Pero no es lo que te dijeron.**
+>
+> Y ese salto de 🔴 a 🟡 es el ejemplo de por qué el auditor es **el paso 2 y no
+> el veredicto**: marca dónde mirar, no decide.
 
 ---
 

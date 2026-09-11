@@ -113,9 +113,22 @@ El auditor es **el paso 2**. Así revisamos nosotros:
 
 ## Casos revisados
 
-| Proyecto | Veredicto | |
-|---|---|---|
-| [free-claude-code](casos/free-claude-code.md) | 🟡 **Amarillo** | *«Usa Claude gratis para siempre»* — no es un fraude, pero **no es Claude** |
+| Proyecto | El auditor | Después de leerlo completo | |
+|---|---|---|---|
+| [free-claude-code](casos/free-claude-code.md) | 🔴 | 🟡 **Amarillo** | *«Usa Claude gratis para siempre»* — no es un fraude, pero **no es Claude** |
+
+### 🔑 Y fíjate en esas dos columnas, porque ahí está todo
+
+**El auditor lo marca 🔴** por una combinación real: escucha en toda la red **y**
+viene sin contraseña.
+
+**Al leer el código completo baja a 🟡**, por dos razones que una máquina no podía
+saber: **el panel donde viven las llaves sí está protegido** *(solo acepta
+conexiones de tu propia máquina, y está bien hecho)*, y **lo demás se arregla con
+una línea** *(`HOST=127.0.0.1`)*.
+
+> **Ese salto de 🔴 a 🟡, con razones, es exactamente para lo que existen los
+> pasos 3 y 4.** El auditor te dice dónde mirar. **No te dice el veredicto.**
 
 **Cada caso trae lo que encontramos, cómo lo comprobamos, y también lo que
 resultó ser falso de nuestras propias sospechas.**
