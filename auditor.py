@@ -24,7 +24,17 @@ from collections import defaultdict
 from dataclasses import dataclass, field
 from pathlib import Path
 
-VERSION = "1.0"
+# 🔴 En Windows la consola es cp1252 y Python se cae al imprimir el semáforo
+# (UnicodeEncodeError con 🟢🟡🔴). Pasaba DESPUÉS de leer los 751 archivos: hacía
+# todo el trabajo y tronaba en la última línea, justo al dar el veredicto.
+# Se reconfigura la salida a UTF-8; si la terminal no lo soporta, se sigue igual.
+for _flujo in (sys.stdout, sys.stderr):
+    try:
+        _flujo.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
+
+VERSION = "1.0.1"
 
 IGNORAR_DIR = {
     ".git", "node_modules", "__pycache__", ".venv", "venv", "dist", "build",
